@@ -1,4 +1,14 @@
-import { AttachInternals, Component, Event, EventEmitter, h, Prop } from '@stencil/core';
+import {
+  AttachInternals,
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Prop,
+  Watch,
+  forceUpdate,
+} from '@stencil/core';
 
 export type InputType = 'email' | 'password' | 'search' | 'tel' | 'text' | 'url';
 
@@ -6,6 +16,7 @@ let nextId = 0;
 
 @Component({ tag: 'ds-input', styleUrl: 'ds-input.css', shadow: true, formAssociated: true })
 export class DsInput {
+  @Element() host!: HTMLDsInputElement;
   @AttachInternals() internals!: ElementInternals;
 
   /** Current value. */
@@ -27,7 +38,7 @@ export class DsInput {
   /** Native placeholder. */
   @Prop() placeholder?: string;
   /** Form field name. */
-  @Prop() name?: string;
+  @Prop({ reflect: true }) name?: string;
   /** Native input type. */
   @Prop() type: InputType = 'text';
   /** Native autocomplete token. */
@@ -37,24 +48,64 @@ export class DsInput {
   @Event() dsInput!: EventEmitter<string>;
 
   private readonly controlId = `ds-input-${++nextId}`;
+  private formDisabled = false;
+  private initialValue = '';
+  private input?: HTMLInputElement;
 
   componentWillLoad() {
-    this.syncFormValue();
+    this.initialValue = this.value;
+    this.syncFormState();
   }
 
   formResetCallback() {
-    this.value = '';
-    this.syncFormValue();
+    this.value = this.initialValue;
+    this.syncFormState();
   }
 
-  private syncFormValue() {
+  formDisabledCallback(disabled: boolean) {
+    this.formDisabled = disabled;
+    this.syncFormState();
+    queueMicrotask(() => forceUpdate(this.host));
+  }
+
+  formStateRestoreCallback(state: string | File | FormData | null) {
+    if (typeof state === 'string') this.value = state;
+    this.syncFormState();
+  }
+
+  @Watch('disabled')
+  @Watch('errorMessage')
+  @Watch('invalid')
+  @Watch('required')
+  @Watch('value')
+  protected syncFormState() {
+    const unavailable = this.disabled || this.formDisabled;
     // Stencil's mock DOM does not implement form association; real browsers do.
-    this.internals.setFormValue?.(this.disabled ? null : this.value);
+    this.internals.setFormValue?.(unavailable ? null : this.value, this.value);
+
+    if (!this.internals.setValidity) return;
+    if (this.invalid) {
+      this.internals.setValidity(
+        { customError: true },
+        this.errorMessage || 'The value is invalid.',
+        this.input,
+      );
+    } else if (this.required && !this.value) {
+      this.internals.setValidity({ valueMissing: true }, 'Complete this field.', this.input);
+    } else if (this.input && !this.input.validity.valid) {
+      this.internals.setValidity(
+        { typeMismatch: this.input.validity.typeMismatch },
+        this.input.validationMessage,
+        this.input,
+      );
+    } else {
+      this.internals.setValidity({});
+    }
   }
 
   private handleInput = (event: Event) => {
     this.value = (event.target as HTMLInputElement).value;
-    this.syncFormValue();
+    this.syncFormState();
     this.dsInput.emit(this.value);
   };
 
@@ -81,13 +132,14 @@ export class DsInput {
           aria-describedby={describedBy}
           aria-invalid={this.invalid ? 'true' : undefined}
           autocomplete={this.autocomplete}
-          disabled={this.disabled}
+          disabled={this.disabled || this.formDisabled}
           id={this.controlId}
           onInput={this.handleInput}
           part="input"
           placeholder={this.placeholder}
           readOnly={this.readonly}
           required={this.required}
+          ref={element => (this.input = element)}
           type={this.type}
           value={this.value}
         />

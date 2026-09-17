@@ -5,6 +5,7 @@ dist-custom-elements/
 storybook-static/
 playwright-report/
 test-results/
+.vitest-attachments/
 examples/*/dist/
 *.tsbuildinfo
 *.tgz

@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, Element, h, Prop } from '@stencil/core';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'danger';
 export type ButtonSize = 'sm' | 'md' | 'lg';
@@ -11,6 +11,8 @@ export type ButtonType = 'button' | 'submit' | 'reset';
  */
 @Component({ tag: 'ds-button', styleUrl: 'ds-button.css', shadow: true })
 export class DsButton {
+  @Element() host!: HTMLDsButtonElement;
+
   /** Visual style. */
   @Prop() variant: ButtonVariant = 'primary';
   /** Control size. */
@@ -22,6 +24,14 @@ export class DsButton {
   /** Native button type. */
   @Prop() type: ButtonType = 'button';
 
+  private handleClick = () => {
+    if (this.disabled || this.loading || this.type === 'button') return;
+    const form = this.host.closest('form');
+    if (!form) return;
+    if (this.type === 'submit') form.requestSubmit();
+    else form.reset();
+  };
+
   render() {
     const unavailable = this.disabled || this.loading;
     return (
@@ -29,8 +39,9 @@ export class DsButton {
         aria-busy={this.loading ? 'true' : undefined}
         class={`button button--${this.variant} button--${this.size}`}
         disabled={unavailable}
+        onClick={this.handleClick}
         part="button"
-        type={this.type}
+        type="button"
       >
         <span class="icon" part="start-icon">
           <slot name="start" />

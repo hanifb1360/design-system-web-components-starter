@@ -42,7 +42,7 @@ defineCustomElements();
 <ds-input label="Email" name="email" type="email"></ds-input>
 ```
 
-React 19 renders custom elements directly; `dsInput` remains a DOM `CustomEvent<string>`, so use a ref with `addEventListener` where React event typing is insufficient. See `examples/react`.
+React 19 renders custom elements directly. The example augments React's JSX types so `ondsInput` receives the typed `CustomEvent<string>` without a wrapper component. See `examples/react`.
 
 ## Tokens, themes, and customization
 
