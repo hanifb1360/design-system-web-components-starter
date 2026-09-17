@@ -5,3 +5,5 @@ Web Components are the platform-level distribution format; Stencil supplies type
 Storybook registers and renders the built custom elements. Vanilla and React examples consume only package exports. CI packs the release artifact, installs it into isolated copies of both examples, and builds them so a source-workspace shortcut cannot hide a broken public contract. Keeping one package avoids workspace plumbing that would obscure the starter's purpose. The root export provides the lazy distribution, `loader` registers it, `components/*` exposes auto-defined custom-element modules, and `styles` exposes tokens.
 
 Customization is deliberately ordered: tokens, properties/attributes, slots, events, then narrowly exposed parts. Releases use Changesets and semantic versioning. The generic `ds-` prefix must be replaced by real adopters to prevent registry collisions.
+
+The [architecture decision records](decisions/README.md) preserve the context, alternatives, and consequences behind the major choices. The [case study](case-study.md) connects those decisions to implementation evidence and measurable outcomes.

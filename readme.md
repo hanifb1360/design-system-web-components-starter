@@ -4,6 +4,8 @@ A production-oriented starter architecture for building framework-agnostic desig
 
 This is a reference implementation—not an established product design system. Replace the generic `ds-` prefix before adopting it in an organization.
 
+For a guided technical narrative, read the [modernization case study](docs/case-study.md) and its [architecture decision records](docs/decisions/README.md).
+
 ## Architecture
 
 ```mermaid
