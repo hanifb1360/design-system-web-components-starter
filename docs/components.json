@@ -1,0 +1,873 @@
+{
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "4.45.0",
+    "typescriptVersion": "5.8.3"
+  },
+  "components": [
+    {
+      "filePath": "src/components/ds-button/ds-button.tsx",
+      "encapsulation": "shadow",
+      "tag": "ds-button",
+      "readme": "# ds-button\n",
+      "docs": "A theme-aware action control that preserves native button semantics.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Label."
+        },
+        {
+          "name": "slot",
+          "text": "start - Leading icon."
+        },
+        {
+          "name": "slot",
+          "text": "end - Trailing icon."
+        },
+        {
+          "name": "part",
+          "text": "button - Native button control."
+        },
+        {
+          "name": "part",
+          "text": "start-icon - Leading icon container."
+        },
+        {
+          "name": "part",
+          "text": "end-icon - Trailing icon container."
+        }
+      ],
+      "usage": {
+        "basic": "Use the default slot for the label and named slots for optional icons:\n\n```html\n<ds-button type=\"submit\">\n  <ds-icon name=\"check\" slot=\"start\"></ds-icon>\n  Save\n</ds-button>\n```\n\n`type=\"submit\"` and `type=\"reset\"` act on the nearest light-DOM form. The default `button` type has no implicit form action.\n"
+      },
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "Prevent interaction.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "loading",
+          "reflectToAttr": true,
+          "docs": "Indicate progress and prevent duplicate activation.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"lg\" | \"md\" | \"sm\"",
+          "complexType": {
+            "original": "ButtonSize",
+            "resolved": "\"lg\" | \"md\" | \"sm\"",
+            "references": {
+              "ButtonSize": {
+                "location": "local",
+                "path": "/Users/hanifbahari/Projects/design-system-web-components-starter/src/components/ds-button/ds-button.tsx",
+                "id": "src/components/ds-button/ds-button.tsx::ButtonSize"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "Control size.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'md'"
+            }
+          ],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "type",
+          "type": "\"button\" | \"reset\" | \"submit\"",
+          "complexType": {
+            "original": "ButtonType",
+            "resolved": "\"button\" | \"reset\" | \"submit\"",
+            "references": {
+              "ButtonType": {
+                "location": "local",
+                "path": "/Users/hanifbahari/Projects/design-system-web-components-starter/src/components/ds-button/ds-button.tsx",
+                "id": "src/components/ds-button/ds-button.tsx::ButtonType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "Native button type.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'button'"
+            }
+          ],
+          "default": "'button'",
+          "values": [
+            {
+              "value": "button",
+              "type": "string"
+            },
+            {
+              "value": "reset",
+              "type": "string"
+            },
+            {
+              "value": "submit",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "variant",
+          "type": "\"danger\" | \"primary\" | \"secondary\" | \"tertiary\"",
+          "complexType": {
+            "original": "ButtonVariant",
+            "resolved": "\"danger\" | \"primary\" | \"secondary\" | \"tertiary\"",
+            "references": {
+              "ButtonVariant": {
+                "location": "local",
+                "path": "/Users/hanifbahari/Projects/design-system-web-components-starter/src/components/ds-button/ds-button.tsx",
+                "id": "src/components/ds-button/ds-button.tsx::ButtonVariant"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "Visual style.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'primary'"
+            }
+          ],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Label."
+        },
+        {
+          "name": "end",
+          "docs": "Trailing icon."
+        },
+        {
+          "name": "start",
+          "docs": "Leading icon."
+        }
+      ],
+      "parts": [
+        {
+          "name": "button",
+          "docs": "Native button control."
+        },
+        {
+          "name": "end-icon",
+          "docs": "Trailing icon container."
+        },
+        {
+          "name": "start-icon",
+          "docs": "Leading icon container."
+        }
+      ],
+      "states": [],
+      "dependents": [],
+      "dependencies": ["ds-icon"],
+      "dependencyGraph": {
+        "ds-button": ["ds-icon"]
+      }
+    },
+    {
+      "filePath": "src/components/ds-icon/ds-icon.tsx",
+      "encapsulation": "shadow",
+      "tag": "ds-icon",
+      "readme": "# ds-icon\n",
+      "docs": "A small bundled icon primitive for decorative and meaningful icons.",
+      "docsTags": [
+        {
+          "name": "part",
+          "text": "svg - SVG element containing the icon artwork."
+        }
+      ],
+      "usage": {
+        "basic": "Icons inside labeled controls are decorative by default. Give only meaningful standalone icons a label:\n\n```html\n<ds-icon name=\"info\" label=\"More information\"></ds-icon>\n```\n"
+      },
+      "props": [
+        {
+          "name": "label",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "Accessible name for a meaningful standalone icon. Omit for decorative icons.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "name",
+          "type": "\"check\" | \"close\" | \"info\" | \"search\" | \"spinner\"",
+          "complexType": {
+            "original": "IconName",
+            "resolved": "\"check\" | \"close\" | \"info\" | \"search\" | \"spinner\"",
+            "references": {
+              "IconName": {
+                "location": "local",
+                "path": "/Users/hanifbahari/Projects/design-system-web-components-starter/src/components/ds-icon/ds-icon.tsx",
+                "id": "src/components/ds-icon/ds-icon.tsx::IconName"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "Icon from the starter's intentionally small, bundled set.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'info'"
+            }
+          ],
+          "default": "'info'",
+          "values": [
+            {
+              "value": "check",
+              "type": "string"
+            },
+            {
+              "value": "close",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "search",
+              "type": "string"
+            },
+            {
+              "value": "spinner",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"lg\" | \"md\" | \"sm\"",
+          "complexType": {
+            "original": "IconSize",
+            "resolved": "\"lg\" | \"md\" | \"sm\"",
+            "references": {
+              "IconSize": {
+                "location": "local",
+                "path": "/Users/hanifbahari/Projects/design-system-web-components-starter/src/components/ds-icon/ds-icon.tsx",
+                "id": "src/components/ds-icon/ds-icon.tsx::IconSize"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "Rendered icon size.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'md'"
+            }
+          ],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "svg",
+          "docs": "SVG element containing the icon artwork."
+        }
+      ],
+      "states": [],
+      "dependents": ["ds-button", "ds-input"],
+      "dependencies": [],
+      "dependencyGraph": {
+        "ds-button": ["ds-icon"],
+        "ds-input": ["ds-icon"]
+      }
+    },
+    {
+      "filePath": "src/components/ds-input/ds-input.tsx",
+      "encapsulation": "shadow",
+      "tag": "ds-input",
+      "readme": "# ds-input\n",
+      "docs": "A labeled, form-associated text field with description and validation support.",
+      "docsTags": [
+        {
+          "name": "part",
+          "text": "input - Native input control."
+        }
+      ],
+      "usage": {
+        "basic": "Provide a visible label and a name when the field participates in a form:\n\n```html\n<ds-input\n  description=\"Used for account notifications.\"\n  label=\"Email\"\n  name=\"email\"\n  required\n  type=\"email\"\n></ds-input>\n```\n\nListen for `dsInput`; its `detail` is the current string value. The component participates in `FormData`, constraint validation, reset, and disabled fieldsets through `ElementInternals`.\n"
+      },
+      "props": [
+        {
+          "name": "autocomplete",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "autocomplete",
+          "reflectToAttr": false,
+          "docs": "Native autocomplete token.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "description",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "description",
+          "reflectToAttr": false,
+          "docs": "Supporting description.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "Disable interaction and form submission.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "errorMessage",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error-message",
+          "reflectToAttr": false,
+          "docs": "Error text shown while invalid.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "invalid",
+          "reflectToAttr": true,
+          "docs": "Communicate an invalid value.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "Visible accessible label.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": true,
+          "docs": "Form field name.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "Native placeholder.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": true,
+          "docs": "Prevent edits without disabling the control.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": true,
+          "docs": "Require a value.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "type",
+          "type": "\"email\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"url\"",
+          "complexType": {
+            "original": "InputType",
+            "resolved": "\"email\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"url\"",
+            "references": {
+              "InputType": {
+                "location": "local",
+                "path": "/Users/hanifbahari/Projects/design-system-web-components-starter/src/components/ds-input/ds-input.tsx",
+                "id": "src/components/ds-input/ds-input.tsx::InputType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "Native input type.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'text'"
+            }
+          ],
+          "default": "'text'",
+          "values": [
+            {
+              "value": "email",
+              "type": "string"
+            },
+            {
+              "value": "password",
+              "type": "string"
+            },
+            {
+              "value": "search",
+              "type": "string"
+            },
+            {
+              "value": "tel",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            },
+            {
+              "value": "url",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "Current value.",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "''"
+            }
+          ],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "dsInput",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Fires as the user edits. Detail contains the current string value.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "input",
+          "docs": "Native input control."
+        }
+      ],
+      "states": [],
+      "dependents": [],
+      "dependencies": ["ds-icon"],
+      "dependencyGraph": {
+        "ds-input": ["ds-icon"]
+      }
+    }
+  ],
+  "typeLibrary": {
+    "src/components/ds-button/ds-button.tsx::ButtonVariant": {
+      "declaration": "export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'danger';",
+      "docstring": "",
+      "path": "src/components/ds-button/ds-button.tsx"
+    },
+    "src/components/ds-button/ds-button.tsx::ButtonSize": {
+      "declaration": "export type ButtonSize = 'sm' | 'md' | 'lg';",
+      "docstring": "",
+      "path": "src/components/ds-button/ds-button.tsx"
+    },
+    "src/components/ds-button/ds-button.tsx::ButtonType": {
+      "declaration": "export type ButtonType = 'button' | 'submit' | 'reset';",
+      "docstring": "",
+      "path": "src/components/ds-button/ds-button.tsx"
+    },
+    "src/components/ds-icon/ds-icon.tsx::IconName": {
+      "declaration": "export type IconName = 'check' | 'close' | 'info' | 'search' | 'spinner';",
+      "docstring": "",
+      "path": "src/components/ds-icon/ds-icon.tsx"
+    },
+    "src/components/ds-icon/ds-icon.tsx::IconSize": {
+      "declaration": "export type IconSize = 'sm' | 'md' | 'lg';",
+      "docstring": "",
+      "path": "src/components/ds-icon/ds-icon.tsx"
+    },
+    "src/components/ds-input/ds-input.tsx::InputType": {
+      "declaration": "export type InputType = 'email' | 'password' | 'search' | 'tel' | 'text' | 'url';",
+      "docstring": "",
+      "path": "src/components/ds-input/ds-input.tsx"
+    }
+  }
+}

@@ -14,6 +14,11 @@ export type InputType = 'email' | 'password' | 'search' | 'tel' | 'text' | 'url'
 
 let nextId = 0;
 
+/**
+ * A labeled, form-associated text field with description and validation support.
+ *
+ * @part input - Native input control.
+ */
 @Component({ tag: 'ds-input', styleUrl: 'ds-input.css', shadow: true, formAssociated: true })
 export class DsInput {
   @Element() host!: HTMLDsInputElement;

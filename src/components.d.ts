@@ -12,6 +12,9 @@ export { ButtonSize, ButtonType, ButtonVariant } from "./components/ds-button/ds
 export { IconName, IconSize } from "./components/ds-icon/ds-icon";
 export { InputType } from "./components/ds-input/ds-input";
 export namespace Components {
+    /**
+     * A theme-aware action control that preserves native button semantics.
+     */
     interface DsButton {
         /**
           * Prevent interaction.
@@ -39,6 +42,9 @@ export namespace Components {
          */
         "variant": ButtonVariant;
     }
+    /**
+     * A small bundled icon primitive for decorative and meaningful icons.
+     */
     interface DsIcon {
         /**
           * Accessible name for a meaningful standalone icon. Omit for decorative icons.
@@ -55,6 +61,9 @@ export namespace Components {
          */
         "size": IconSize;
     }
+    /**
+     * A labeled, form-associated text field with description and validation support.
+     */
     interface DsInput {
         /**
           * Native autocomplete token.
@@ -117,12 +126,18 @@ export interface DsInputCustomEvent<T> extends CustomEvent<T> {
     target: HTMLDsInputElement;
 }
 declare global {
+    /**
+     * A theme-aware action control that preserves native button semantics.
+     */
     interface HTMLDsButtonElement extends Components.DsButton, HTMLStencilElement {
     }
     var HTMLDsButtonElement: {
         prototype: HTMLDsButtonElement;
         new (): HTMLDsButtonElement;
     };
+    /**
+     * A small bundled icon primitive for decorative and meaningful icons.
+     */
     interface HTMLDsIconElement extends Components.DsIcon, HTMLStencilElement {
     }
     var HTMLDsIconElement: {
@@ -132,6 +147,9 @@ declare global {
     interface HTMLDsInputElementEventMap {
         "dsInput": string;
     }
+    /**
+     * A labeled, form-associated text field with description and validation support.
+     */
     interface HTMLDsInputElement extends Components.DsInput, HTMLStencilElement {
         addEventListener<K extends keyof HTMLDsInputElementEventMap>(type: K, listener: (this: HTMLDsInputElement, ev: DsInputCustomEvent<HTMLDsInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -155,6 +173,9 @@ declare global {
 declare namespace LocalJSX {
     type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K]?: never };
 
+    /**
+     * A theme-aware action control that preserves native button semantics.
+     */
     interface DsButton {
         /**
           * Prevent interaction.
@@ -182,6 +203,9 @@ declare namespace LocalJSX {
          */
         "variant"?: ButtonVariant;
     }
+    /**
+     * A small bundled icon primitive for decorative and meaningful icons.
+     */
     interface DsIcon {
         /**
           * Accessible name for a meaningful standalone icon. Omit for decorative icons.
@@ -198,6 +222,9 @@ declare namespace LocalJSX {
          */
         "size"?: IconSize;
     }
+    /**
+     * A labeled, form-associated text field with description and validation support.
+     */
     interface DsInput {
         /**
           * Native autocomplete token.
@@ -300,8 +327,17 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * A theme-aware action control that preserves native button semantics.
+             */
             "ds-button": LocalJSX.IntrinsicElements["ds-button"] & JSXBase.HTMLAttributes<HTMLDsButtonElement>;
+            /**
+             * A small bundled icon primitive for decorative and meaningful icons.
+             */
             "ds-icon": LocalJSX.IntrinsicElements["ds-icon"] & JSXBase.HTMLAttributes<HTMLDsIconElement>;
+            /**
+             * A labeled, form-associated text field with description and validation support.
+             */
             "ds-input": LocalJSX.IntrinsicElements["ds-input"] & JSXBase.HTMLAttributes<HTMLDsInputElement>;
         }
     }

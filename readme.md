@@ -27,9 +27,11 @@ npm run dev
 npm run storybook
 ```
 
-Quality commands: `npm run lint`, `npm run format:check`, `npm run typecheck`, `npm test`, `npm run test:browser`, `npm run test:storybook`, `npm run test:visual`, `npm run build:storybook`, `npm run build:examples`, `npm run verify:package`, and `npm run verify:consumers`.
+Quality commands: `npm run lint`, `npm run format:check`, `npm run typecheck`, `npm run docs:check`, `npm test`, `npm run test:browser`, `npm run test:storybook`, `npm run test:visual`, `npm run build:storybook`, `npm run build:examples`, `npm run verify:package`, and `npm run verify:consumers`.
 
 Create a component with `npm run generate ds-example`, then follow [component guidelines](docs/component-guidelines.md). Public CSS is in `src/styles`; import `@hanifb/web-component-design-system-starter/styles` and register lazy components from the package loader.
+
+Generated API references live beside each component: [`ds-button`](src/components/ds-button/readme.md), [`ds-icon`](src/components/ds-icon/readme.md), and [`ds-input`](src/components/ds-input/readme.md). The machine-readable catalog is [`docs/components.json`](docs/components.json).
 
 ```js
 import '@hanifb/web-component-design-system-starter/styles';

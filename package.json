@@ -71,6 +71,8 @@
     "verify:package": "node scripts/verify-package.mjs",
     "verify:consumers": "node scripts/verify-consumers.mjs",
     "build:examples": "npm run build && npm run build --prefix examples/vanilla && npm run build --prefix examples/react",
+    "docs": "node scripts/generate-docs.mjs",
+    "docs:check": "node scripts/check-docs.mjs",
     "generate": "stencil generate",
     "changeset": "changeset",
     "version-packages": "changeset version"

@@ -11,6 +11,11 @@ const paths: Record<IconName, string> = {
   spinner: 'M21 12a9 9 0 0 1-9 9',
 };
 
+/**
+ * A small bundled icon primitive for decorative and meaningful icons.
+ *
+ * @part svg - SVG element containing the icon artwork.
+ */
 @Component({ tag: 'ds-icon', styleUrl: 'ds-icon.css', shadow: true })
 export class DsIcon {
   /** Icon from the starter's intentionally small, bundled set. */

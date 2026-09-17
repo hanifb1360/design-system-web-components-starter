@@ -5,9 +5,14 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
 export type ButtonType = 'button' | 'submit' | 'reset';
 
 /**
+ * A theme-aware action control that preserves native button semantics.
+ *
  * @slot - Label.
  * @slot start - Leading icon.
  * @slot end - Trailing icon.
+ * @part button - Native button control.
+ * @part start-icon - Leading icon container.
+ * @part end-icon - Trailing icon container.
  */
 @Component({ tag: 'ds-button', styleUrl: 'ds-button.css', shadow: true })
 export class DsButton {
