@@ -1,4 +1,5 @@
-:root {
+:root,
+[data-theme] {
   --ds-button-primary-background: var(--ds-color-action-primary);
   --ds-button-primary-background-hover: var(--ds-color-action-primary-hover);
   --ds-button-primary-background-active: var(--ds-color-action-primary-active);

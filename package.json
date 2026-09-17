@@ -64,6 +64,8 @@
     "test:unit": "stencil-test --project spec",
     "test:browser": "stencil-test --project browser",
     "test:storybook": "vitest --run --project storybook",
+    "test:visual": "stencil-test --project visual",
+    "test:visual:update": "stencil-test --project visual --update",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "npm run build && storybook build",
     "verify:package": "node scripts/verify-package.mjs",
