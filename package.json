@@ -1,60 +1,98 @@
 {
-  "name": "design-system-web-components-starter",
-  "version": "0.0.1",
-  "description": "Stencil Component Starter",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/design-system-web-components-starter/design-system-web-components-starter.esm.js",
-  "exports": {
-    ".": {
-      "import": "./dist/design-system-web-components-starter/design-system-web-components-starter.esm.js",
-      "require": "./dist/design-system-web-components-starter/design-system-web-components-starter.cjs.js"
-    },
-    "./my-component": {
-      "import": "./dist/components/my-component.js",
-      "types": "./dist/components/my-component.d.ts"
-    },
-    "./loader": {
-      "import": "./loader/index.js",
-      "require": "./loader/index.cjs",
-      "types": "./loader/index.d.ts"
-    }
-  },
+  "name": "@hanifb/web-component-design-system-starter",
+  "version": "0.1.0",
+  "description": "Production-oriented starter architecture for framework-agnostic design systems with Stencil and Web Components.",
+  "author": "Hanif Bahari",
+  "license": "MIT",
+  "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "git+https://github.com/hanifb1360/design-system-web-components-starter.git"
   },
+  "bugs": {
+    "url": "https://github.com/hanifb1360/design-system-web-components-starter/issues"
+  },
+  "homepage": "https://github.com/hanifb1360/design-system-web-components-starter#readme",
+  "keywords": [
+    "design-system",
+    "stencil",
+    "web-components",
+    "typescript",
+    "accessibility"
+  ],
   "files": [
     "dist/",
-    "loader/"
+    "dist-custom-elements/",
+    "loader/",
+    "src/styles/",
+    "README.md",
+    "LICENSE"
   ],
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.js",
+  "collection": "./dist/collection/collection-manifest.json",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./loader": {
+      "types": "./loader/index.d.ts",
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs.js"
+    },
+    "./components/*": {
+      "types": "./dist-custom-elements/*.d.ts",
+      "import": "./dist-custom-elements/*.js"
+    },
+    "./styles": "./src/styles/index.css",
+    "./styles/*": "./src/styles/*"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
   "scripts": {
-    "build": "stencil build",
-    "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate",
+    "dev": "stencil build --dev --watch --serve",
+    "build": "stencil build --prod",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "stencil-test --prod",
+    "test:unit": "stencil-test --project spec",
+    "test:browser": "stencil-test --project browser",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build:storybook": "npm run build && storybook build",
+    "verify:package": "node scripts/verify-package.mjs",
+    "build:examples": "npm run build && npm run build --prefix examples/vanilla && npm run build --prefix examples/react",
+    "generate": "stencil generate",
+    "changeset": "changeset",
+    "version-packages": "changeset version"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.2",
-    "@stencil/core": "^4.7.0",
-    "@storybook/addon-essentials": "^8.4.5",
-    "@storybook/blocks": "^8.4.5",
-    "@storybook/test": "^8.4.5",
-    "@storybook/web-components": "^8.4.5",
-    "@storybook/web-components-vite": "^8.4.5",
-    "@types/jest": "^29.5.6",
-    "@types/node": "^16.18.11",
-    "jest": "^29.7.0",
-    "jest-cli": "^29.7.0",
-    "lit": "^3.2.1",
-    "puppeteer": "^23.9.0",
-    "storybook": "^8.4.5"
-  },
-  "license": "MIT"
+    "@changesets/cli": "^2.29.7",
+    "@eslint/js": "^9.35.0",
+    "@stencil/core": "^4.45.0",
+    "@stencil/eslint-plugin": "^1.4.0",
+    "@stencil/vitest": "^1.14.0",
+    "@storybook/addon-a11y": "^10.6.0",
+    "@storybook/web-components-vite": "^10.6.0",
+    "@types/node": "^24.5.2",
+    "@vitest/browser-playwright": "^4.0.0",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-storybook": "^10.6.0",
+    "globals": "^16.4.0",
+    "lit": "^3.3.1",
+    "prettier": "^3.6.2",
+    "storybook": "^10.6.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.0",
+    "vitest": "^4.0.0"
+  }
 }

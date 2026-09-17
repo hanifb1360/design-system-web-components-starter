@@ -4,22 +4,20 @@
     "allowUnreachableCode": false,
     "declaration": false,
     "experimentalDecorators": true,
-    "lib": [
-      "dom",
-      "es2017"
-    ],
-    "moduleResolution": "node",
-    "module": "esnext",
-    "target": "es2017",
+    "lib": ["DOM", "ES2022", "ESNext.Disposable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2022",
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "types": ["@stencil/vitest/globals", "node"]
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src", ".storybook", "vitest.config.ts", "vitest-setup.ts"],
+  "exclude": ["node_modules", "dist", "dist-custom-elements", "www", "storybook-static"]
 }

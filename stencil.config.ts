@@ -1,26 +1,17 @@
-import { Config } from '@stencil/core';
+import type { Config } from '@stencil/core';
 
 export const config: Config = {
-  namespace: 'design-system-web-components-starter',
+  namespace: 'dsStarter',
+  sourceMap: true,
   outputTargets: [
-    {
-      type: 'dist',
-      esmLoaderPath: '../loader',
-    },
+    { type: 'dist', esmLoaderPath: '../loader' },
     {
       type: 'dist-custom-elements',
-      customElementsExportBehavior: 'auto-define-custom-elements',
+      dir: 'dist-custom-elements',
+      customElementsExportBehavior: 'single-export-module',
       externalRuntime: false,
+      generateTypeDeclarations: true,
     },
-    {
-      type: 'docs-readme',
-    },
-    {
-      type: 'www',
-      serviceWorker: null, // disable service workers
-    },
+    { type: 'www', serviceWorker: null },
   ],
-  testing: {
-    browserHeadless: "new",
-  },
 };

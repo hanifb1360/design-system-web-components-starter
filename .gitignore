@@ -1,6 +1,14 @@
 dist/
 www/
 loader/
+dist-custom-elements/
+storybook-static/
+playwright-report/
+test-results/
+examples/*/dist/
+*.tsbuildinfo
+*.tgz
+.package-verify/
 
 *~
 *.sw[mnpcod]
