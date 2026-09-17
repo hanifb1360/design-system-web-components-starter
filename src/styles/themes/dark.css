@@ -1,0 +1,16 @@
+[data-theme='dark'] {
+  color-scheme: dark;
+  --ds-color-background: var(--ds-color-gray-950);
+  --ds-color-surface: var(--ds-color-gray-800);
+  --ds-color-text: var(--ds-color-gray-50);
+  --ds-color-text-muted: var(--ds-color-gray-200);
+  --ds-color-border: var(--ds-color-gray-500);
+  --ds-color-action-primary: var(--ds-color-blue-400);
+  --ds-color-action-primary-hover: var(--ds-color-blue-600);
+  --ds-color-action-primary-active: var(--ds-color-blue-700);
+  --ds-color-danger: var(--ds-color-red-400);
+  --ds-color-danger-hover: var(--ds-color-red-600);
+  --ds-color-danger-text: var(--ds-color-red-400);
+  --ds-color-focus: var(--ds-color-blue-400);
+  --ds-button-primary-text: var(--ds-color-gray-950);
+}

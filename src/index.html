@@ -1,14 +1,24 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
-
-    <script type="module" src="/build/design-system-web-components-starter.esm.js"></script>
-    <script nomodule src="/build/design-system-web-components-starter.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web Component Design System Starter</title>
+    <link rel="stylesheet" href="/styles/index.css" />
+    <script type="module" src="/build/ds-starter.esm.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+    <main>
+      <h1>Design system components</h1>
+      <ds-input
+        label="Email"
+        name="email"
+        type="email"
+        description="We will not share it."
+      ></ds-input>
+      <p>
+        <ds-button><ds-icon name="check" slot="start"></ds-icon>Continue</ds-button>
+      </p>
+    </main>
   </body>
 </html>

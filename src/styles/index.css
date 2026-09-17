@@ -1,0 +1,12 @@
+@import './tokens/primitive.css';
+@import './tokens/semantic.css';
+@import './tokens/component.css';
+@import './themes/light.css';
+@import './themes/dark.css';
+
+html {
+  background: var(--ds-color-background);
+  color: var(--ds-color-text);
+  font-family: var(--ds-font-family);
+  line-height: var(--ds-line-height);
+}

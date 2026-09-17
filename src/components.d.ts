@@ -5,57 +5,244 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ButtonSize, ButtonType, ButtonVariant } from "./components/ds-button/ds-button";
+import { IconName, IconSize } from "./components/ds-icon/ds-icon";
+import { InputType } from "./components/ds-input/ds-input";
+export { ButtonSize, ButtonType, ButtonVariant } from "./components/ds-button/ds-button";
+export { IconName, IconSize } from "./components/ds-icon/ds-icon";
+export { InputType } from "./components/ds-input/ds-input";
 export namespace Components {
-    interface MyComponent {
+    interface DsButton {
         /**
-          * The first name
+          * @default false
          */
-        "first": string;
+        "disabled": boolean;
         /**
-          * The last name
+          * @default false
          */
-        "last": string;
+        "loading": boolean;
         /**
-          * The middle name
+          * @default 'md'
          */
-        "middle": string;
+        "size": ButtonSize;
+        /**
+          * @default 'button'
+         */
+        "type": ButtonType;
+        /**
+          * @default 'primary'
+         */
+        "variant": ButtonVariant;
+    }
+    interface DsIcon {
+        /**
+          * Accessible name for a meaningful standalone icon. Omit for decorative icons.
+         */
+        "label"?: string;
+        /**
+          * Icon from the starter's intentionally small, bundled set.
+          * @default 'info'
+         */
+        "name": IconName;
+        /**
+          * @default 'md'
+         */
+        "size": IconSize;
+    }
+    interface DsInput {
+        "autocomplete"?: string;
+        "description"?: string;
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        "errorMessage"?: string;
+        /**
+          * @default false
+         */
+        "invalid": boolean;
+        "label": string;
+        "name"?: string;
+        "placeholder"?: string;
+        /**
+          * @default false
+         */
+        "readonly": boolean;
+        /**
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * @default 'text'
+         */
+        "type": InputType;
+        /**
+          * @default ''
+         */
+        "value": string;
     }
 }
+export interface DsInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsInputElement;
+}
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLDsButtonElement extends Components.DsButton, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLDsButtonElement: {
+        prototype: HTMLDsButtonElement;
+        new (): HTMLDsButtonElement;
+    };
+    interface HTMLDsIconElement extends Components.DsIcon, HTMLStencilElement {
+    }
+    var HTMLDsIconElement: {
+        prototype: HTMLDsIconElement;
+        new (): HTMLDsIconElement;
+    };
+    interface HTMLDsInputElementEventMap {
+        "dsInput": string;
+    }
+    interface HTMLDsInputElement extends Components.DsInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsInputElementEventMap>(type: K, listener: (this: HTMLDsInputElement, ev: DsInputCustomEvent<HTMLDsInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsInputElementEventMap>(type: K, listener: (this: HTMLDsInputElement, ev: DsInputCustomEvent<HTMLDsInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsInputElement: {
+        prototype: HTMLDsInputElement;
+        new (): HTMLDsInputElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "ds-button": HTMLDsButtonElement;
+        "ds-icon": HTMLDsIconElement;
+        "ds-input": HTMLDsInputElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K]?: never };
+
+    interface DsButton {
         /**
-          * The first name
+          * @default false
          */
-        "first"?: string;
+        "disabled"?: boolean;
         /**
-          * The last name
+          * @default false
          */
-        "last"?: string;
+        "loading"?: boolean;
         /**
-          * The middle name
+          * @default 'md'
          */
-        "middle"?: string;
+        "size"?: ButtonSize;
+        /**
+          * @default 'button'
+         */
+        "type"?: ButtonType;
+        /**
+          * @default 'primary'
+         */
+        "variant"?: ButtonVariant;
     }
+    interface DsIcon {
+        /**
+          * Accessible name for a meaningful standalone icon. Omit for decorative icons.
+         */
+        "label"?: string;
+        /**
+          * Icon from the starter's intentionally small, bundled set.
+          * @default 'info'
+         */
+        "name"?: IconName;
+        /**
+          * @default 'md'
+         */
+        "size"?: IconSize;
+    }
+    interface DsInput {
+        "autocomplete"?: string;
+        "description"?: string;
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        "errorMessage"?: string;
+        /**
+          * The `id` of a `<form>` element to associate this element with.
+         */
+        "form"?: string;
+        /**
+          * @default false
+         */
+        "invalid"?: boolean;
+        "label": string;
+        "name"?: string;
+        /**
+          * Fires as the user edits. Detail contains the current string value.
+         */
+        "onDsInput"?: (event: DsInputCustomEvent<string>) => void;
+        "placeholder"?: string;
+        /**
+          * @default false
+         */
+        "readonly"?: boolean;
+        /**
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * @default 'text'
+         */
+        "type"?: InputType;
+        /**
+          * @default ''
+         */
+        "value"?: string;
+    }
+
+    interface DsButtonAttributes {
+        "variant": ButtonVariant;
+        "size": ButtonSize;
+        "disabled": boolean;
+        "loading": boolean;
+        "type": ButtonType;
+    }
+    interface DsIconAttributes {
+        "name": IconName;
+        "size": IconSize;
+        "label": string;
+    }
+    interface DsInputAttributes {
+        "value": string;
+        "label": string;
+        "description": string;
+        "errorMessage": string;
+        "required": boolean;
+        "disabled": boolean;
+        "readonly": boolean;
+        "invalid": boolean;
+        "placeholder": string;
+        "name": string;
+        "type": InputType;
+        "autocomplete": string;
+    }
+
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "ds-button": Omit<DsButton, keyof DsButtonAttributes> & { [K in keyof DsButton & keyof DsButtonAttributes]?: DsButton[K] } & { [K in keyof DsButton & keyof DsButtonAttributes as `attr:${K}`]?: DsButtonAttributes[K] } & { [K in keyof DsButton & keyof DsButtonAttributes as `prop:${K}`]?: DsButton[K] };
+        "ds-icon": Omit<DsIcon, keyof DsIconAttributes> & { [K in keyof DsIcon & keyof DsIconAttributes]?: DsIcon[K] } & { [K in keyof DsIcon & keyof DsIconAttributes as `attr:${K}`]?: DsIconAttributes[K] } & { [K in keyof DsIcon & keyof DsIconAttributes as `prop:${K}`]?: DsIcon[K] };
+        "ds-input": Omit<DsInput, keyof DsInputAttributes> & { [K in keyof DsInput & keyof DsInputAttributes]?: DsInput[K] } & { [K in keyof DsInput & keyof DsInputAttributes as `attr:${K}`]?: DsInputAttributes[K] } & { [K in keyof DsInput & keyof DsInputAttributes as `prop:${K}`]?: DsInput[K] } & OneOf<"label", DsInput["label"], DsInputAttributes["label"]>;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "ds-button": LocalJSX.IntrinsicElements["ds-button"] & JSXBase.HTMLAttributes<HTMLDsButtonElement>;
+            "ds-icon": LocalJSX.IntrinsicElements["ds-icon"] & JSXBase.HTMLAttributes<HTMLDsIconElement>;
+            "ds-input": LocalJSX.IntrinsicElements["ds-input"] & JSXBase.HTMLAttributes<HTMLDsInputElement>;
         }
     }
 }

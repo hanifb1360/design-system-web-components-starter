@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  color: var(--ds-color-text);
+  font-family: var(--ds-font-family);
+}
+.field {
+  display: grid;
+  gap: var(--ds-space-2);
+}
+label {
+  font-weight: var(--ds-font-weight-semibold);
+}
+.description {
+  color: var(--ds-color-text-muted);
+  font-size: var(--ds-font-size-sm);
+}
+input {
+  appearance: none;
+  background: var(--ds-input-background);
+  border: var(--ds-input-border-width) solid var(--ds-input-border);
+  border-radius: var(--ds-input-radius);
+  color: var(--ds-color-text);
+  font: inherit;
+  min-block-size: 2.75rem;
+  padding: var(--ds-space-2) var(--ds-space-3);
+}
+input:hover:not(:disabled) {
+  border-color: var(--ds-input-border-hover);
+}
+input:focus-visible {
+  border-color: var(--ds-input-border-focus);
+  outline: var(--ds-focus-width) solid var(--ds-color-focus);
+  outline-offset: var(--ds-focus-offset);
+}
+input[aria-invalid='true'] {
+  border-color: var(--ds-color-danger);
+}
+input:disabled {
+  cursor: not-allowed;
+  opacity: var(--ds-disabled-opacity);
+}
+.error {
+  align-items: center;
+  color: var(--ds-color-danger-text);
+  display: flex;
+  font-size: var(--ds-font-size-sm);
+  gap: var(--ds-space-1);
+}

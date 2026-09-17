@@ -1,0 +1,26 @@
+:root {
+  --ds-button-primary-background: var(--ds-color-action-primary);
+  --ds-button-primary-background-hover: var(--ds-color-action-primary-hover);
+  --ds-button-primary-background-active: var(--ds-color-action-primary-active);
+  --ds-button-primary-text: var(--ds-color-white);
+  --ds-button-secondary-background: transparent;
+  --ds-button-secondary-background-hover: var(--ds-color-surface);
+  --ds-button-secondary-border: var(--ds-color-border);
+  --ds-button-secondary-text: var(--ds-color-text);
+  --ds-button-tertiary-text: var(--ds-color-action-primary);
+  --ds-button-tertiary-background-hover: var(--ds-color-surface);
+  --ds-button-danger-background: var(--ds-color-danger);
+  --ds-button-danger-background-hover: var(--ds-color-danger-hover);
+  --ds-button-danger-text: var(--ds-color-white);
+  --ds-button-radius: var(--ds-radius-md);
+  --ds-button-border-width: 1px;
+  --ds-input-background: var(--ds-color-background);
+  --ds-input-border: var(--ds-color-border);
+  --ds-input-border-hover: var(--ds-color-text-muted);
+  --ds-input-border-focus: var(--ds-color-action-primary);
+  --ds-input-border-width: 1px;
+  --ds-input-radius: var(--ds-radius-sm);
+  --ds-icon-size-sm: 1rem;
+  --ds-icon-size-md: 1.25rem;
+  --ds-icon-size-lg: 1.5rem;
+}

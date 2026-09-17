@@ -1,0 +1,16 @@
+:root {
+  --ds-font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  --ds-color-background: var(--ds-color-white);
+  --ds-color-surface: var(--ds-color-gray-50);
+  --ds-color-text: var(--ds-color-gray-950);
+  --ds-color-text-muted: var(--ds-color-gray-500);
+  --ds-color-border: var(--ds-color-gray-200);
+  --ds-color-action-primary: var(--ds-color-blue-600);
+  --ds-color-action-primary-hover: var(--ds-color-blue-700);
+  --ds-color-action-primary-active: var(--ds-color-blue-800);
+  --ds-color-danger: var(--ds-color-red-600);
+  --ds-color-danger-hover: var(--ds-color-red-700);
+  --ds-color-danger-text: var(--ds-color-red-700);
+  --ds-color-focus: var(--ds-color-blue-600);
+  --ds-disabled-opacity: 0.55;
+}
