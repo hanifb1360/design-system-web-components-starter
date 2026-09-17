@@ -1,0 +1,83 @@
+name: Bug report
+description: Report a reproducible component, package, documentation, or tooling defect.
+title: 'bug: '
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for helping improve the starter. Do not include security-sensitive details here; follow SECURITY.md instead.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Preflight
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: This report does not contain a security vulnerability.
+          required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version or commit
+      description: Provide the installed version or exact commit SHA.
+      placeholder: 0.1.0 or abc1234
+    validations:
+      required: true
+  - type: dropdown
+    id: consumer
+    attributes:
+      label: Consumer environment
+      options:
+        - Vanilla JavaScript
+        - React
+        - Another framework
+        - Storybook
+        - Build or package tooling
+        - Documentation
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include browser and version, operating system, Node version, package manager, and framework version where relevant.
+      placeholder: |
+        Browser:
+        OS:
+        Node:
+        Package manager:
+        Framework:
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Link a small repository or provide the smallest HTML, CSS, and JavaScript needed to reproduce the defect.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Describe what happens, including errors and relevant assistive-technology output.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Describe the observable result you expected and why.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: User impact
+      description: Explain who is affected and whether this blocks interaction, accessibility, adoption, or release work.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Additional evidence
+      description: Add screenshots, visual diffs, logs, or related links. Remove secrets and personal data.

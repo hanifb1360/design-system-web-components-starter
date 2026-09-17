@@ -1,0 +1,9 @@
+# Default ownership for implementation, documentation, workflows, and release metadata.
+* @hanifb1360
+
+# Make high-risk surfaces explicit even though the default owner is currently the same.
+/.github/ @hanifb1360
+/.changeset/ @hanifb1360
+/scripts/ @hanifb1360
+/src/styles/ @hanifb1360
+/src/components/ @hanifb1360

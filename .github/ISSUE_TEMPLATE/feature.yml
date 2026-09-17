@@ -1,0 +1,53 @@
+name: Feature proposal
+description: Propose a component, API, token, integration, or tooling improvement.
+title: 'proposal: '
+body:
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Preflight
+      options:
+        - label: I searched existing issues and decision records for related work.
+          required: true
+        - label: I am proposing a consumer problem, not only a preferred implementation.
+          required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and users
+      description: What user or maintainer problem exists, and which consumers experience it?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe observable success without prescribing every implementation detail.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed public contract
+      description: Show relevant properties, attributes, events, slots, parts, tokens, exports, or commands.
+    validations:
+      required: true
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility and interaction
+      description: Describe semantics, keyboard behavior, focus, announcements, validation, and manual testing needs.
+    validations:
+      required: true
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: Alternatives and tradeoffs
+      description: What alternatives were considered? Include compatibility, bundle-size, maintenance, and migration costs.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting evidence
+      description: Link research, standards, prototypes, consumer requests, or comparable APIs.

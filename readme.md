@@ -62,7 +62,7 @@ Stencil's first-class Vitest package covers component and Chromium browser tests
 
 Changesets classify fixes as patch, additive APIs as minor, and breaking public changes as major. The release workflow prepares a reviewed version PR and GitHub release; npm publishing remains intentionally disabled until maintainers explicitly configure it.
 
-See [contributing](docs/contributing.md). Current browser support targets evergreen browsers with Custom Elements, Shadow DOM, CSS custom properties, and ElementInternals. Form-associated custom-element support is required for native `ds-input` form participation; consumers needing legacy browsers must provide a deliberate fallback.
+See [contributing](CONTRIBUTING.md), [support](SUPPORT.md), and the [security policy](SECURITY.md). Current browser support targets evergreen browsers with Custom Elements, Shadow DOM, CSS custom properties, and ElementInternals. Form-associated custom-element support is required for native `ds-input` form participation; consumers needing legacy browsers must provide a deliberate fallback.
 
 ## License
 
