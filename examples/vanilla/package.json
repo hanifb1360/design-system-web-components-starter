@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@hanifb/web-component-design-system-starter": "file:../.."
+  },
+  "devDependencies": {
+    "vite": "^7.1.7"
+  }
+}

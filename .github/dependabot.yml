@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule: { interval: monthly }
+    groups:
+      storybook: { patterns: ['storybook', '@storybook/*'] }
+      testing: { patterns: ['vitest', '@vitest/*', '@stencil/vitest', '@stencil/playwright'] }
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: monthly }
