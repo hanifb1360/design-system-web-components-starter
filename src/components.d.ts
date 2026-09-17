@@ -14,22 +14,27 @@ export { InputType } from "./components/ds-input/ds-input";
 export namespace Components {
     interface DsButton {
         /**
+          * Prevent interaction.
           * @default false
          */
         "disabled": boolean;
         /**
+          * Indicate progress and prevent duplicate activation.
           * @default false
          */
         "loading": boolean;
         /**
+          * Control size.
           * @default 'md'
          */
         "size": ButtonSize;
         /**
+          * Native button type.
           * @default 'button'
          */
         "type": ButtonType;
         /**
+          * Visual style.
           * @default 'primary'
          */
         "variant": ButtonVariant;
@@ -45,38 +50,63 @@ export namespace Components {
          */
         "name": IconName;
         /**
+          * Rendered icon size.
           * @default 'md'
          */
         "size": IconSize;
     }
     interface DsInput {
+        /**
+          * Native autocomplete token.
+         */
         "autocomplete"?: string;
+        /**
+          * Supporting description.
+         */
         "description"?: string;
         /**
+          * Disable interaction and form submission.
           * @default false
          */
         "disabled": boolean;
+        /**
+          * Error text shown while invalid.
+         */
         "errorMessage"?: string;
         /**
+          * Communicate an invalid value.
           * @default false
          */
         "invalid": boolean;
+        /**
+          * Visible accessible label.
+         */
         "label": string;
+        /**
+          * Form field name.
+         */
         "name"?: string;
+        /**
+          * Native placeholder.
+         */
         "placeholder"?: string;
         /**
+          * Prevent edits without disabling the control.
           * @default false
          */
         "readonly": boolean;
         /**
+          * Require a value.
           * @default false
          */
         "required": boolean;
         /**
+          * Native input type.
           * @default 'text'
          */
         "type": InputType;
         /**
+          * Current value.
           * @default ''
          */
         "value": string;
@@ -127,22 +157,27 @@ declare namespace LocalJSX {
 
     interface DsButton {
         /**
+          * Prevent interaction.
           * @default false
          */
         "disabled"?: boolean;
         /**
+          * Indicate progress and prevent duplicate activation.
           * @default false
          */
         "loading"?: boolean;
         /**
+          * Control size.
           * @default 'md'
          */
         "size"?: ButtonSize;
         /**
+          * Native button type.
           * @default 'button'
          */
         "type"?: ButtonType;
         /**
+          * Visual style.
           * @default 'primary'
          */
         "variant"?: ButtonVariant;
@@ -158,46 +193,71 @@ declare namespace LocalJSX {
          */
         "name"?: IconName;
         /**
+          * Rendered icon size.
           * @default 'md'
          */
         "size"?: IconSize;
     }
     interface DsInput {
+        /**
+          * Native autocomplete token.
+         */
         "autocomplete"?: string;
+        /**
+          * Supporting description.
+         */
         "description"?: string;
         /**
+          * Disable interaction and form submission.
           * @default false
          */
         "disabled"?: boolean;
+        /**
+          * Error text shown while invalid.
+         */
         "errorMessage"?: string;
         /**
           * The `id` of a `<form>` element to associate this element with.
          */
         "form"?: string;
         /**
+          * Communicate an invalid value.
           * @default false
          */
         "invalid"?: boolean;
+        /**
+          * Visible accessible label.
+         */
         "label": string;
+        /**
+          * Form field name.
+         */
         "name"?: string;
         /**
           * Fires as the user edits. Detail contains the current string value.
          */
         "onDsInput"?: (event: DsInputCustomEvent<string>) => void;
+        /**
+          * Native placeholder.
+         */
         "placeholder"?: string;
         /**
+          * Prevent edits without disabling the control.
           * @default false
          */
         "readonly"?: boolean;
         /**
+          * Require a value.
           * @default false
          */
         "required"?: boolean;
         /**
+          * Native input type.
           * @default 'text'
          */
         "type"?: InputType;
         /**
+          * Current value.
           * @default ''
          */
         "value"?: string;
