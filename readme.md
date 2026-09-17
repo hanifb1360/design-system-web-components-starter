@@ -27,7 +27,7 @@ npm run dev
 npm run storybook
 ```
 
-Quality commands: `npm run lint`, `npm run format:check`, `npm run typecheck`, `npm test`, `npm run test:browser`, `npm run test:storybook`, `npm run build:storybook`, `npm run build:examples`, and `npm run verify:package`.
+Quality commands: `npm run lint`, `npm run format:check`, `npm run typecheck`, `npm test`, `npm run test:browser`, `npm run test:storybook`, `npm run build:storybook`, `npm run build:examples`, `npm run verify:package`, and `npm run verify:consumers`.
 
 Create a component with `npm run generate ds-example`, then follow [component guidelines](docs/component-guidelines.md). Public CSS is in `src/styles`; import `@hanifb/web-component-design-system-starter/styles` and register lazy components from the package loader.
 
@@ -54,7 +54,7 @@ Stencil's first-class Vitest package covers component and Chromium browser tests
 
 ## Build, package, and releases
 
-`npm run build` produces lazy `dist`, loader, and individually importable `dist-custom-elements` outputs. `npm run verify:package` packs the library, checks contents, installs the tarball in a temporary consumer, and exercises public imports without publishing.
+`npm run build` produces lazy `dist`, loader, and individually importable `dist-custom-elements` outputs. `npm run verify:package` checks the packed contents and public import paths. `npm run verify:consumers` installs that packed artifact—not the source checkout—into isolated vanilla JavaScript and React fixtures, then bundles both. This protects the package exports, runtime registration, styles, React JSX augmentation, and typed custom-event contract without publishing.
 
 Changesets classify fixes as patch, additive APIs as minor, and breaking public changes as major. The release workflow prepares a reviewed version PR and GitHub release; npm publishing remains intentionally disabled until maintainers explicitly configure it.
 

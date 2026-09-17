@@ -67,6 +67,7 @@
     "storybook": "storybook dev -p 6006",
     "build:storybook": "npm run build && storybook build",
     "verify:package": "node scripts/verify-package.mjs",
+    "verify:consumers": "node scripts/verify-consumers.mjs",
     "build:examples": "npm run build && npm run build --prefix examples/vanilla && npm run build --prefix examples/react",
     "generate": "stencil generate",
     "changeset": "changeset",
