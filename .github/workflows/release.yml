@@ -9,6 +9,6 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - run: npm ci
-      - uses: changesets/action@v1
+      - uses: changesets/action@v2
         with: { version: npm run version-packages }
         env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
