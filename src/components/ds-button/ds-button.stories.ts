@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit';
+import { expect, userEvent } from 'storybook/test';
 
 const meta: Meta = {
   title: 'Components/Button',
@@ -38,4 +39,16 @@ export const EndIcon: Story = {
     ></ds-button>`,
 };
 export const LongLabel: Story = { args: { label: 'Continue to the next step in this process' } };
+export const KeyboardFocus: Story = {
+  play: async ({ canvasElement }) => {
+    const component = canvasElement.querySelector('ds-button');
+    const button = component?.shadowRoot?.querySelector('button');
+    let activations = 0;
+    button?.addEventListener('click', () => (activations += 1), { once: true });
+    button?.focus();
+    await expect(component?.shadowRoot?.activeElement).toBe(button);
+    await userEvent.keyboard('{Enter}');
+    await expect(activations).toBe(1);
+  },
+};
 export const DarkTheme: Story = { globals: { theme: 'dark' } };

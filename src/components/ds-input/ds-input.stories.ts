@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit';
+import { expect } from 'storybook/test';
 const meta: Meta = {
   title: 'Components/Input',
   component: 'ds-input',
@@ -23,6 +24,13 @@ export const Required: Story = { args: { required: true } };
 export const Description: Story = { args: { description: 'Used for account notifications.' } };
 export const Invalid: Story = {
   args: { invalid: true, errorMessage: 'Enter a valid email address.' },
+  play: async ({ canvasElement }) => {
+    const component = canvasElement.querySelector('ds-input');
+    const input = component?.shadowRoot?.querySelector('input');
+    const error = component?.shadowRoot?.querySelector('[role="alert"]');
+    await expect(input).toHaveAttribute('aria-invalid', 'true');
+    await expect(input?.getAttribute('aria-describedby')).toContain(error?.id);
+  },
 };
 export const Disabled: Story = { args: { disabled: true } };
 export const Readonly: Story = { args: { readonly: true, value: 'reader@example.com' } };
