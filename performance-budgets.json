@@ -1,0 +1,26 @@
+{
+  "lazy distribution": {
+    "directories": ["dist/dsstarter"],
+    "extensions": [".js"],
+    "maxRawBytes": 33000,
+    "maxGzipBytes": 12500
+  },
+  "custom-elements distribution": {
+    "directories": ["dist-custom-elements"],
+    "extensions": [".js"],
+    "maxRawBytes": 31000,
+    "maxGzipBytes": 11500
+  },
+  "loader": {
+    "directories": ["loader"],
+    "extensions": [".js"],
+    "maxRawBytes": 1000,
+    "maxGzipBytes": 500
+  },
+  "design tokens and themes": {
+    "directories": ["src/styles"],
+    "extensions": [".css"],
+    "maxRawBytes": 5000,
+    "maxGzipBytes": 1200
+  }
+}

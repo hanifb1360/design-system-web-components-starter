@@ -73,6 +73,7 @@
     "build:examples": "npm run build && npm run build --prefix examples/vanilla && npm run build --prefix examples/react",
     "docs": "node scripts/generate-docs.mjs",
     "docs:check": "node scripts/check-docs.mjs",
+    "performance:check": "node scripts/check-performance-budgets.mjs",
     "generate": "stencil generate",
     "changeset": "changeset",
     "version-packages": "changeset version"

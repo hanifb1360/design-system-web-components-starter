@@ -3,6 +3,7 @@ import type { Config } from '@stencil/core';
 export const config: Config = {
   namespace: 'dsStarter',
   sourceMap: true,
+  tsconfig: './tsconfig.stencil.json',
   outputTargets: [
     { type: 'dist', esmLoaderPath: '../loader' },
     {
