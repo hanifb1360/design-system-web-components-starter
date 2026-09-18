@@ -1,6 +1,6 @@
 {
   "name": "@hanifb/web-component-design-system-starter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Production-oriented starter architecture for framework-agnostic design systems with Stencil and Web Components.",
   "author": "Hanif Bahari",
   "license": "MIT",
