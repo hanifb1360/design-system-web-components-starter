@@ -88,7 +88,7 @@
     "@storybook/addon-vitest": "^10.6.0",
     "@storybook/web-components-vite": "^10.6.0",
     "@types/node": "^24.5.2",
-    "@vitest/browser-playwright": "^4.1.11",
+    "@vitest/browser-playwright": "^5.0.0",
     "eslint": "^9.35.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -101,6 +101,6 @@
     "storybook": "^10.6.0",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.44.0",
-    "vitest": "^4.1.11"
+    "vitest": "^5.0.0"
   }
 }
